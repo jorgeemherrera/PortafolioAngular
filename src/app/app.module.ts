@@ -1,5 +1,8 @@
 import { BrowserModule } from '@angular/platform-browser';
 import { NgModule } from '@angular/core';
+import { FormsModule } from '@angular/forms';
+import { RouterModule } from '@angular/router';
+import { HttpModule } from '@angular/http';
 
 /**
  * Rutas
@@ -12,8 +15,13 @@ import { FooterComponent } from './shared/footer/footer.component';
 import { PortfolioComponent } from './pages/portfolio/portfolio.component';
 import { AboutComponent } from './pages/about/about.component';
 import { ItemComponent } from './pages/item/item.component';
-import { HttpClientModule } from '@angular/common/http';
+import { HttpClient, HttpClientModule } from '@angular/common/http';
 import { SearchComponent } from './pages/search/search.component'; // Permite hacer peticiones verbo - REST
+
+/**
+ * Service
+ */
+import { MenuService } from './services/menu.service';
 
 @NgModule({
   declarations: [
@@ -25,12 +33,8 @@ import { SearchComponent } from './pages/search/search.component'; // Permite ha
     ItemComponent,
     SearchComponent
   ],
-  imports: [
-    BrowserModule,
-    AppRoutingModule,
-    HttpClientModule
-  ],
-  providers: [],
+  imports: [ BrowserModule, FormsModule, RouterModule, AppRoutingModule, HttpModule , HttpClientModule  ],
+  providers: [MenuService],
   bootstrap: [AppComponent]
 })
 export class AppModule { }
