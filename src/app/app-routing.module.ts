@@ -13,10 +13,51 @@ import { SearchComponent } from './pages/search/search.component';
  * Rutas de mi App
  */
 const app_routes: Routes = [
-    { path: 'home', component: PortfolioComponent },
-    { path: 'about', component: AboutComponent },
-    { path: 'item/:id', component: ItemComponent }, // especificar la ruta del item
-    { path: 'search/:termino', component: SearchComponent },
+    { 
+      path: 'home',
+      component: PortfolioComponent,
+      data: {
+          breadcrumb: ''
+      }
+    },
+    { 
+      path: 'about',
+      component: AboutComponent,
+      data: {
+          breadcrumb: 'Acerca'
+      }
+    },
+    { 
+      path: 'item',
+      // component: PortfolioComponent,
+      //TODO: necesito generar herencia entre componentes
+      data: {
+        breadcrumb: 'item'
+      },
+      children: [
+          {
+              path: ':id',
+              component: ItemComponent,
+              data: {
+                breadcrumb: ''
+              }
+          }
+      ]
+    },
+    // { 
+    //   path: 'item/:id',
+    //   component: ItemComponent,
+    //   data: {
+    //     breadcrumb: ''
+    //   }
+    // },
+    { 
+      path: 'search/:termino',
+      component: SearchComponent,
+      data: {
+        breadcrumb: ':termino'
+      }
+    },
     { path: '**', pathMatch: 'full', redirectTo: 'home'}
 ];
 

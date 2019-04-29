@@ -22,6 +22,7 @@ import { SearchComponent } from './pages/search/search.component'; // Permite ha
  * Service
  */
 import { MenuService } from './services/menu.service';
+import { BreadcrumbComponent } from './breadcrumb/breadcrumb.component';
 
 @NgModule({
   declarations: [
@@ -31,7 +32,8 @@ import { MenuService } from './services/menu.service';
     PortfolioComponent,
     AboutComponent,
     ItemComponent,
-    SearchComponent
+    SearchComponent,
+    BreadcrumbComponent
   ],
   imports: [ BrowserModule, FormsModule, RouterModule, AppRoutingModule, HttpModule , HttpClientModule  ],
   providers: [MenuService],
